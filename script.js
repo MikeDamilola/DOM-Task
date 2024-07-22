@@ -7,14 +7,15 @@ const player02 = document.querySelector(".player--1");
 //To reset the score of the two players to zero
 const firstPlayer01 = document.getElementById("score--0");
 const secondPlayer02 = document.getElementById("score--1");
-
 const dice01 = document.querySelector(".dice"); //referencing the class of the image
+
+const current01 = document.getElementById("current--0");
+const current02 = document.getElementById("current--1");
+
 const btnRoll = document.querySelector(".btn--roll"); // referencing the roll dice class
 const btnHold = document.querySelector(".btn--hold")// referencing the btn hold class
 const btnNew = document.querySelector(".btn--new");
 
-const current01 = document.getElementById("current--0");
-const current02 = document.getElementById("current--1");
 
 let scores, currentScore, activePlayer, playGame;
 //define each player score that has been called by Id
