@@ -25,8 +25,11 @@ let scores = [0, 0];
 let activePlayer = 0;
 let currentScore = 0;
 
+let playGame = true;
+
 btnRoll.addEventListener('click', function(){
-dice01.classList.remove("hidden");
+if(playGame) {
+    dice01.classList.remove("hidden");
 
 //to generate random number
 const dice = Math.trunc(Math.random() * 6) +1; // learnt in this line of code that is the amount you restrict the random number to select, that it will select with coresspondence to the quantity of what is linked to it.
@@ -36,7 +39,7 @@ dice01.src = `./image/dice-${dice}.png`; //.src is reference the source of the i
 
 //
 
-if(dice != 1){
+if(dice !== 1){
     //display the score
 currentScore += dice;  //assign the current score to the dice number value.
 // current02.textContent = currentScore;
@@ -51,6 +54,7 @@ player01.classList.toggle("player--active");
 player02.classList.toggle("player--active");
 
 }
+}
 });
 
 
@@ -64,7 +68,8 @@ btnHold.addEventListener('click', function(){
 
     if(scores[activePlayer] >= 20){
     document.querySelector(`.player--${activePlayer}`).classList.add("player--winner");
-
+    document.querySelector(`.player--${activePlayer}`).classList.add("player--active");
+    dice01.classList.add("hidden"); //to hide the dice when the button is on hold
 
     }else{
 
