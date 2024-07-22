@@ -67,14 +67,14 @@ btnHold.addEventListener('click', function(){
     document.getElementById(`score--${activePlayer}`).textContent
     = scores[activePlayer];
 
-    if(scores[activePlayer] >= 20){
+    if(scores[activePlayer] >= 100){
     document.querySelector(`.player--${activePlayer}`).classList.add("player--winner");
     document.querySelector(`.player--${activePlayer}`).classList.add("player--active");
     dice01.classList.add("hidden"); //to hide the dice when the button is on hold
 
-    }else{
+        }else{
 
-    }
+        }
     }
 });
 
