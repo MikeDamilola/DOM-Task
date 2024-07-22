@@ -17,15 +17,26 @@ const current02 = document.getElementById("current--1");
 
 
 //define each player score that has been called by Id
-firstPlayer01.textContent = 0;
+const init = function(){
+    firstPlayer01.textContent = 0;
 secondPlayer02.textContent = 0;
 dice01.classList.add("hidden"); // to hid the image
 
 let scores = [0, 0];
 let activePlayer = 0;
 let currentScore = 0;
-
 let playGame = true;
+};
+
+const switchPlayer = function(){
+    // switch player
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+
+    activePlayer = activePlayer === 0 ? 1 : 0;  
+    currentScore = 0;
+    player01.classList.toggle("player--active");
+    player02.classList.toggle("player--active");
+}
 
 btnRoll.addEventListener('click', function(){
 if(playGame) {
@@ -46,13 +57,7 @@ currentScore += dice;  //assign the current score to the dice number value.
 document.getElementById(`current--${activePlayer}`).textContent = currentScore;
 } else {
     // switch player
-document.getElementById(`current--${activePlayer}`).textContent = 0;
-
-activePlayer = activePlayer === 0 ? 1 : 0;  
-currentScore = 0;
-player01.classList.toggle("player--active");
-player02.classList.toggle("player--active");
-
+    switchPlayer();
 }
 }
 });
@@ -73,7 +78,8 @@ btnHold.addEventListener('click', function(){
     dice01.classList.add("hidden"); //to hide the dice when the button is on hold
 
         }else{
-
+           // switch player
+            switchPlayer();
         }
     }
 });
