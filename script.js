@@ -62,7 +62,8 @@ player02.classList.toggle("player--active");
 
 btnHold.addEventListener('click', function(){
 
-    scores[activePlayer] += currentScore;
+    if(playGame){
+        scores[activePlayer] += currentScore;
     document.getElementById(`score--${activePlayer}`).textContent
     = scores[activePlayer];
 
@@ -73,6 +74,7 @@ btnHold.addEventListener('click', function(){
 
     }else{
 
+    }
     }
 });
 
