@@ -11,22 +11,34 @@ const secondPlayer02 = document.getElementById("score--1");
 const dice01 = document.querySelector(".dice"); //referencing the class of the image
 const btnRoll = document.querySelector(".btn--roll"); // referencing the roll dice class
 const btnHold = document.querySelector(".btn--hold")// referencing the btn hold class
+const btnNew = document.querySelector(".btn--new");
 
 const current01 = document.getElementById("current--0");
 const current02 = document.getElementById("current--1");
 
-
+let scores, currentScore, activePlayer, playGame;
 //define each player score that has been called by Id
-const init = function(){
-    firstPlayer01.textContent = 0;
+const inti = function() {
+firstPlayer01.textContent = 0;
 secondPlayer02.textContent = 0;
 dice01.classList.add("hidden"); // to hid the image
 
-let scores = [0, 0];
-let activePlayer = 0;
-let currentScore = 0;
-let playGame = true;
+scores = [0, 0];
+activePlayer = 0;
+currentScore = 0;
+playGame = true;
+
+current01.textContent = 0;
+current02.textContent = 0;
+
+dice01.classList.add("hidden");
+firstPlayer01.classList.remove('player--winner');
+secondPlayer02.classList.remove('player--winner');
+firstPlayer01.classList.remove('player--active');
+secondPlayer02.classList.remove('player--active');
 };
+
+inti();
 
 const switchPlayer = function(){
     // switch player
@@ -83,4 +95,6 @@ btnHold.addEventListener('click', function(){
         }
     }
 });
+
+btnNew .addEventListener('click',inti)
 
